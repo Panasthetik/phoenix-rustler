@@ -1,0 +1,42 @@
+<form action="/" method="POST">
+  <input type="hidden" name="_csrf_token" value=<%= @csrf_token %> />
+
+  <label for="callput">CallPut</label>
+  <select id="callput" name="callput">
+    <option value="Call">Call</option>
+    <option value="Put">Put</option>
+  </select>
+
+  <label for="underlying">Underlying</label>
+  <input type="number" name="underlying" min="0.0" step="0.01" value=<%= @underlying %> />
+
+  <label for="strike">Strike</label>
+  <input type="number" name="strike" min="0.0" step="0.01" value=<%= @strike %> />
+
+  <label for="timetoexpiry">Time-To-Expiry</label>
+  <input type="number" name="timetoexpiry" min="0.0" step="0.01" value=<%= @timetoexpiry %> />
+
+  <label for="volatility">Volatility</label>
+  <input type="number" name="volatility" min="0.0" step="0.01" value=<%= @volatility %> />
+
+  <label for="riskfreerate">Risk-free Rate</label>
+  <input type="number" name="riskfreerate" min="0.0" step="0.01" value=<%= @riskfreerate %> />
+
+  <%= submit "Calculate" %>
+
+  <table>
+    <tr>
+      <td>Price</td>
+      <td><%= @price %></td>
+    </tr>
+    <tr>
+      <td>Delta</td>
+      <td><%= @delta %></td>
+    </tr>
+  </table>
+
+</form>
+
+<script>
+  document.getElementById("callput").selectedIndex = ["Call","Put"].indexOf( "<%= @callput %>" )
+</script>

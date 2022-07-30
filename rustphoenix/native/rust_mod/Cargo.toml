@@ -1,0 +1,15 @@
+[package]
+name = "rust_mod"
+version = "0.1.0"
+authors = []
+edition = "2018"
+
+[lib]
+name = "rust_mod"
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+rustler = "0.25.0"
+statrs = "0.15"
+
